@@ -1,5 +1,8 @@
 import React from 'react';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
+import HomePage from './Pages/HomePage';
+import ProductPage from './Pages/ProductPage';
 
 function App() {
 
@@ -12,113 +15,57 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
+        <div className="container">
+          <header className="App-header">
 
-      <div className="container">
-        <header className="App-header">
+            <div className="brand">
+              <button onClick={openMenu}>&#9776;</button>
+              <Link to="/">Adfoodio Restaurant </Link>
+            </div>
 
-          <div className="brand">
-            <button onClick={openMenu}>&#9776;</button>
-            <a href="">Restaurant App</a>
-          </div>
+            <div className="header-links">
+              <a href="">Orders</a>
+              <a href="">Sign Up</a>
+              <a href="">Sign In</a>
+            </div>
 
-          <div className="header-links">
-            <a href="">Orders</a>
-            <a href="">Sign Up</a>
-            <a href="">Sign In</a>
-          </div>
+          </header>
 
-        </header>
-
-        <aside className="sidebar">
-          <h3>Our Menu</h3>
-          <button className="sidebar-close-button" onClick={closeMenu} >x</button>
-          <ul className="sidebar-menu">
-            <li>
-              <a href="">Mains</a>
-            </li>
-
-            <li>
-              <a href="">Drinks</a>
-            </li>
-
-            <li>
-              <a href="">Desserts</a>
-            </li>
-          </ul>
-        </aside>
-
-        <main>
-          <div className="content">
-            <ul className="products">
+          <aside className="sidebar">
+            <h3>Our Menu</h3>
+            <button className="sidebar-close-button" onClick={closeMenu} >x</button>
+            <ul className="sidebar-menu">
               <li>
-                  <div className="product">
-                    <img className="product-image" src="" alt="product" />
-                    <div className="product-name">
-                      <a href="">Main1</a>
-                    </div>
-                    <div className="product-price">Price</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="product">
-                    <img className="product-image" src="" alt="product" />
-                    <div className="product-name">
-                      <a href="">Main2</a>
-                    </div>
-                    <div className="product-price">Price</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="product">
-                    <img className="product-image" src="" alt="product" />
-                    <div className="product-name">
-                      <a href="">Main3</a>
-                    </div>
-                    <div className="product-price">Price</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="product">
-                    <img className="product-image" src="" alt="product" />
-                    <div className="product-name">
-                      <a href="">Main3</a>
-                    </div>
-                    <div className="product-price">Price</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="product">
-                    <img className="product-image" src="" alt="product" />
-                    <div className="product-name">
-                      <a href="">Main3</a>
-                    </div>
-                    <div className="product-price">Price</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="product">
-                    <img className="product-image" src="" alt="product" />
-                    <div className="product-name">
-                      <a href="">Main3</a>
-                    </div>
-                    <div className="product-price">Price</div>
-                  </div>
-                </li>
+                <a href="">Mains</a>
+              </li>
+
+              <li>
+                <a href="">Drinks</a>
+              </li>
+
+              <li>
+                <a href="">Desserts</a>
+              </li>
             </ul>
+          </aside>
 
-          </div>
-        </main>
+          <main className="main">
+            <div className="content">
+              <Route path="/product/:id" component={ProductPage}></Route>
+              <Route path="/" exact={true} component={HomePage}></Route>
+            </div>
+          </main>
 
-        <footer className="footer">
-            Ronald Pineda
-        </footer>
+          <footer className="footer">
+              Ronald Pineda
+          </footer>
 
-      </div>
-      
-
-      
-    </div>
+        </div>
+      </div>  
+    </BrowserRouter>
+    
   );
 }
 
