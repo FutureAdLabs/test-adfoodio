@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
-import HomePage from './Pages/HomePage';
-import ProductPage from './Pages/ProductPage';
+import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
 
 function App() {
 
