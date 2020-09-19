@@ -158,3 +158,37 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* Product details */
+.backtothemainpage{
+  padding-left: 0.5rem;
+}
+.details {
+  display: flex;
+  justify-content: space-around; 
+}
+.details-image{
+  flex: 2 1 50rem;
+}
+.details-info{
+  flex: 1 1 35rem;
+}
+.details-order{
+  flex: 1 1 35rem;
+}
+.details-image img {
+  max-width: 50rem;
+  width: 100%;
+  padding-left: 0.5rem;
+}
+.details-info ul{
+  list-style-type: none;
+}
+
+.details-order ul{
+  list-style-type: none;
+}
+.details-order li {
+  margin-bottom: 1rem;
+}
+
