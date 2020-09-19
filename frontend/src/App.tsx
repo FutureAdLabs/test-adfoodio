@@ -26,9 +26,9 @@ function App() {
             </div>
 
             <div className="header-links">
-              <a href="">Orders</a>
-              <a href="">Sign Up</a>
-              <a href="">Sign In</a>
+              <a href="/">Orders</a>
+              <a href="/">Sign Up</a>
+              <a href="/">Sign In</a>
             </div>
 
           </header>
@@ -38,15 +38,15 @@ function App() {
             <button className="sidebar-close-button" onClick={closeMenu} >x</button>
             <ul className="sidebar-menu">
               <li>
-                <a href="">Mains</a>
+                <a href="/">Mains</a>
               </li>
 
               <li>
-                <a href="">Drinks</a>
+                <a href="/">Drinks</a>
               </li>
 
               <li>
-                <a href="">Desserts</a>
+                <a href="/">Desserts</a>
               </li>
             </ul>
           </aside>

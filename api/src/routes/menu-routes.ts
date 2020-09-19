@@ -5,12 +5,9 @@ const router = express.Router();
 
 
 router
-    .get('/', ControllerMenu.getMenu)
-    //.get("/", function(_, res) {
-       // res.type('text/plain').send("Food can be served");
-     // })
-    .get("/drinks", (req,res)=>{
-        res.type('text/plain').send("Drinks can be served")
-    });
+    .get("/", function(_, res) {
+        res.type('text/plain').send("Please go to /api/products to see the products");
+    })
+    .get('/api/products', ControllerMenu.getMenu);
 
 export default router;
