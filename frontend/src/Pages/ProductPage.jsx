@@ -37,10 +37,10 @@ function ProductPage(props) {
                     <div className="details-info">
                         <ul>
                             <li>
-                                <h3>{product.name}</h3>
+                                <h3>{product.product}</h3>
                             </li>
                             <li>
-                                <p>Category: {product.category}</p>
+                                <p>Category: <b><i>{product.category}</i></b></p>
                             </li>
                             <li>
                                 <p>Details: {product.description}</p>

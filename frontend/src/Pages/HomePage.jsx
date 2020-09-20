@@ -27,7 +27,7 @@ function HomePage(props) {
                                                                         </Link>
                                                                         <div className="product-category">{product.category}</div>
                                                                         <div className="product-name">
-                                                                          <Link to={'/products/'+product._id}>{product.name}</Link>
+                                                                          <Link to={'/products/'+product._id}>{product.product}</Link>
                                                                         </div>
                                                                         <div className="product-price">
                                                                           {product.price} €
