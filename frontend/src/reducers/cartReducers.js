@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 
 
 function cartReducer( state = {cartItems: []}, action) {
@@ -12,6 +12,9 @@ function cartReducer( state = {cartItems: []}, action) {
                 return {cartItems: state.cartItems.map(x=> x.product === product.product ?item : x)} //actualizo el nuevo estado con el nuemro actual de productos en el cart
             }
             return { cartItems: [...state.cartItems, item] };
+        
+        case CART_REMOVE_ITEM:
+            return {cartItems: state.cartItems.filter(x => x.product !== action.payload)}
 
         default:
             return state; 

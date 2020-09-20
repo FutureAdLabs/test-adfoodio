@@ -192,3 +192,22 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Cart */
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cart-list{
+  max-width: 50%
+} 
+.cart-list img {
+  max-width: 10rem;
+  max-height: 10rem;
+}
+.cart-action{
+  max-width: 30%;
+  margin-left: 5rem;
+}
+.cart-list-container{
+  list-style-type: none;
+}
