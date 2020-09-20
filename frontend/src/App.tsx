@@ -53,7 +53,7 @@ function App() {
 
           <main className="main">
             <div className="content">
-              <Route path="/product/:id" component={ProductPage}></Route>
+              <Route path="/products/:id" component={ProductPage}></Route>
               <Route path="/" exact={true} component={HomePage}></Route>
             </div>
           </main>

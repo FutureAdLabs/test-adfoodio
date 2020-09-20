@@ -9,6 +9,6 @@ router
         res.type('text/plain').send("Please go to /api/products to see the products");
     })
     .get('/api/products', ControllerMenu.getMenu)
-    .get('/api/product/:id', ControllerMenu.getProduct)
+    .get('/api/products/:id', ControllerMenu.getProduct)
 
 export default router;
