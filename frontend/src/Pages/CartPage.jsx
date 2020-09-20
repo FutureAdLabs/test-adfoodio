@@ -22,6 +22,12 @@ function CartPage(props){
         }
     }, []);
 
+    const checkoutHandler = () => {
+        props.history.push('/signin?redirect=shipping');
+    }
+
+
+
     return (
         <div className="cart">
             <div className="cart-list">
@@ -36,7 +42,7 @@ function CartPage(props){
                         {
                             cartItems.length === 0 ? <div>Cart is empty</div> : 
                             cartItems.map( item => 
-                            <div>
+                            <div className="cart-list-item">
                                 <div className="cart-image">
                                     <img src={item.image} alt="product"></img>
                                 </div>
@@ -72,7 +78,7 @@ function CartPage(props){
                     Subtotal ({ cartItems.reduce((a, c)=> a + c.quantity, 0)} items)
                     : {cartItems.reduce((a, c)=> a + c.quantity * c.price, 0) } € 
                 </h3>
-                <button className= "button primary" disabled={cartItems.length === 0}>Procced to Checkout</button>
+                <button className= "button primary" disabled={cartItems.length === 0} onClick={checkoutHandler}>Procced to Checkout</button>
                 
             </div>
         </div>

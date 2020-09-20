@@ -4,6 +4,9 @@ html {
 a {
   text-decoration: none;
 }
+button{
+  font-size: large;
+}
 body {
   margin: 0;
   height: 100vh;
@@ -201,8 +204,8 @@ body {
   max-width: 50%
 } 
 .cart-list img {
-  max-width: 10rem;
-  max-height: 10rem;
+  max-width: 8rem;
+  max-height: 8rem;
 }
 .cart-action{
   max-width: 30%;
@@ -210,4 +213,10 @@ body {
 }
 .cart-list-container{
   list-style-type: none;
+}
+.cart-list-item {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 0.1rem #c0c0c0 solid;
+  border-bottom: 0.1rem #c0c0c0 solid;
 }
