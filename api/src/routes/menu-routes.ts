@@ -8,6 +8,7 @@ router
     .get("/", function(_, res) {
         res.type('text/plain').send("Please go to /api/products to see the products");
     })
-    .get('/api/products', ControllerMenu.getMenu);
+    .get('/api/products', ControllerMenu.getMenu)
+    .get('/api/product/:id', ControllerMenu.getProduct)
 
 export default router;
