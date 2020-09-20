@@ -26,7 +26,7 @@ function App() {
             </div>
 
             <div className="header-links">
-              <a href="/">Orders</a>
+              <a href="/">Cart</a>
               <a href="/">Sign Up</a>
               <a href="/">Sign In</a>
             </div>

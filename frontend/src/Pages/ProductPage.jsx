@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { detailsProduct } from '../actions/productActions';
 
 function ProductPage(props) {
     //console.log(props.match.params.id);
+    const [quantity, setQuantity] = useState(1); //Inicial cart quantity 
     const productDetails = useSelector(state => state.productDetails);
     const {product, loading, error} = productDetails;
     const dispatch = useDispatch();
@@ -14,7 +15,14 @@ function ProductPage(props) {
         return ()=>{
             //none
         };
-    }, [])
+    }, []);
+
+
+    //handling cart:
+    const handleAddCart = () => {
+        props.history.push('/cart/'+props.match.params.id+'?quantity='+quantity);
+    }
+
 
     return (
         <div>
@@ -47,7 +55,7 @@ function ProductPage(props) {
                                 <p>Price: {product.price} €</p>
                             </li>
                             <li>
-                                Select:<select>
+                                Quantity:<select value={quantity} onChange={(e)=>{setQuantity(e.target.value)}}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -55,7 +63,7 @@ function ProductPage(props) {
                                 </select>
                             </li>
                             <li>
-                                <button>Add to Cart</button>
+                                <button onClick={handleAddCart}>Add to Cart</button>
                             </li>
                         </ul>
                     </div>
