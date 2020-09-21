@@ -4,6 +4,7 @@ import './App.css';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
+import SigninPage from './pages/SigninPage';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
             <div className="header-links">
               <a href="/">Cart</a>
               <a href="/">Sign Up</a>
-              <a href="/">Sign In</a>
+              <Link to="/signin">Sign in</Link>
             </div>
 
           </header>
@@ -54,6 +55,7 @@ function App() {
 
           <main className="main">
             <div className="content">
+              <Route path="/signin" component={SigninPage}></Route>
               <Route path="/products/:id" component={ProductPage}></Route>
               <Route path="/cart/:id?" component={CartPage}></Route>
               <Route path="/" exact={true} component={HomePage}></Route>

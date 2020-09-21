@@ -1,6 +1,5 @@
 import userModel from '../models/user-model';
-import ControllerAuth from './user-controller';
-import getToken from '../../util';
+import { getToken } from '../../util';
 
 const ControllerAuth = () => {
 

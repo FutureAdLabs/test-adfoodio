@@ -9,9 +9,8 @@ User.save = (user: any, cb: queryCallback | undefined) => {
     db.query("INSERT INTO users SET ?", user, cb)
 }
 
-User.findUser = (signinUser) => {
-    
-    db.query(`SELECT email, password FROM users WHERE email = '${signinUser.email}' AND password = '${signinUser.password}' `  )
+User.findUser = (signinUser: any, cb: queryCallback | undefined) => {
+    db.query(`SELECT * FROM users WHERE email = '${signinUser.email}' AND password = '${signinUser.password}' `, cb)
 }
 
 
