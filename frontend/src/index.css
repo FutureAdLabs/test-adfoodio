@@ -1,13 +1,261 @@
+html {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+button{
+  font-size: large;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background-color: #FBCF2A;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+.brand a {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding-left: 1rem;
+}
+.brand a:hover {
+  color:#ff8000;
+}
+.brand button:hover {
+  font-size: x-large;
+  color: #ff8000;
+}
+.brand button {
+  font-size: x-large;
+  color: #27883B;
+}
+.header-links a {
+  color: #27883B;
+  text-decoration: none;
+  padding: 1rem;
+}
+.header-links a:hover {
+  color: #ff8000;
+}
+.main {
+  grid-area: main;
+}
+#root {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*Header*/
+.App-header {
+  grid-area: header;
+  background-color: #FBCF2A;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+/*Sidebar*/
+.sidebar {
+  position: fixed;
+  transition: all 0.5s;
+  transform: translateX(-30rem);
+  width: 15rem;
+  background-color: #f0f0f0;
+}
+.sidebar.open {
+  transform: translateX(0);
+}
+.sidebar-close-button {
+  color: #27883B;
+  border-radius: 30%;
+  border: 0.1rem #27883B solid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding-top: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+}
+.sidebar-menu {
+  list-style-type: none;
+  padding: 1rem;
+  margin: 0;
+  margin-top: 0.4rem;
+}
+.sidebar h3 {
+  color: #ff8000;
+  text-align: center;
+}
+
+.sidebar-menu li {
+  padding: 0.5rem;
+  font-size: large;
+}
+.sidebar-menu a {
+  color: #27883B;
+}
+/* Products */
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.products li {
+  list-style-type: none;
+  padding: 0;
+  flex: 0 1 34rem;
+  margin: 1rem;
+  height: 15rem;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
+}
+.product-category{
+  font-size: 0.8rem;
+  font-weight: bold;
+  max-width: 15rem;
+  text-align: center;
+}
+.product-name {
+  font-size: 1rem;
+  font-weight: bold;
+  max-width: 15rem;
+  text-align: center;
+}
+.product-price {
+  font-size: 0.8rem;
+  font-weight: bold;
+  max-width: 15rem;
+  text-align: center;
+}
+.product-image {
+  max-width: 15rem;
+  max-height: 15rem;
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background-color:#27883B;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Product details */
+.backtothemainpage{
+  padding-left: 0.5rem;
+}
+.details {
+  display: flex;
+  justify-content: space-around; 
+}
+.details-image{
+  flex: 2 1 50rem;
+}
+.details-info{
+  flex: 1 1 35rem;
+}
+.details-order{
+  flex: 1 1 35rem;
+}
+.details-image img {
+  max-width: 50rem;
+  width: 100%;
+  padding-left: 0.5rem;
+}
+.details-info ul{
+  list-style-type: none;
+}
+
+.details-order ul{
+  list-style-type: none;
+}
+.details-order li {
+  margin-bottom: 1rem;
+}
+
+/* Cart */
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cart-list{
+  max-width: 50%
+} 
+.cart-list img {
+  max-width: 8rem;
+  max-height: 8rem;
+}
+.cart-action{
+  max-width: 30%;
+  margin-left: 5rem;
+}
+.cart-list-container{
+  list-style-type: none;
+}
+.cart-list-item {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 0.1rem #c0c0c0 solid;
+  border-bottom: 0.1rem #c0c0c0 solid;
+}
+
+/*  Sign in form */
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.form-container{
+display: flex;
+flex-direction: column;
+padding: 1rem;
+border: 0.2rem #27883B solid;
+border-radius: 0.4rem;
+list-style-type: none;
+
+}
+.form-container li {
+  margin-bottom: 1rem;
+}
+.sign-button{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.create-button{
+  font-size: 1.5rem;
+  background-color: white;
+  color: #4CAF50;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
