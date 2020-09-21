@@ -1,6 +1,6 @@
-import db from './menu-schema';
+import db from './connection';
 
-const Menu = ()=>{
+const Menu = () => {
 
 };
 

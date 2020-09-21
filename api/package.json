@@ -11,6 +11,7 @@
   "author": "Jonathan Gill<jonathan@adludio.com>",
   "license": "ISC",
   "dependencies": {
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/mysql": "^2.15.15",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
@@ -18,6 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
     "mocha": "^8.1.1",
     "mysql": "^2.18.1"
   },
