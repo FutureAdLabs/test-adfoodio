@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
+import { signin } from '../actions/userActions';
 
 
 function SigninPage(props) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
+    const userSignin = useSelector(state => state.userSignin);
+    const {loading, userInfo, error} = userSignin;
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        
+        if(userInfo){
+            //le redirecciono al home
+            props.history.push('/');
+        }
         return ()=>{
             //none
         };
-    }, []);
+    }, [userInfo]);
 
     const submitHandler = (e) => {
         e.preventDefault();
+        dispatch(signin(email, password));
     }
 
     return (
@@ -29,11 +35,15 @@ function SigninPage(props) {
                         <h3>Sign in</h3>
                     </li>
                     <li>
-                        <label for="email">Email</label>
+                        {loading && <div>Loading...</div>}
+                        {error && <div>{error}</div>}
+                    </li>
+                    <li>
+                        <label htmlFor="email">Email</label>
                         <input type="email" name="email" id="email" onChange={(e)=>setEmail(e.target.value)}></input>
                     </li>
                     <li>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input type="password" name="password" id="password" onChange={(e)=>setPassword(e.target.value)}></input>
                     </li>
                     <li>
