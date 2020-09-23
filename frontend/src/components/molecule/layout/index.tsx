@@ -1,0 +1,16 @@
+import * as React from 'react';
+
+interface Props {
+  children: any;
+}
+
+const Layout: React.FC<Props> = ({ children }) => {
+  return (
+    <div>
+      {children}
+    </div>
+
+  );
+};
+
+export default Layout;
