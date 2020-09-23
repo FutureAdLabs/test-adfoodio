@@ -65,4 +65,24 @@ services:
       - MYSQL_PASSWORD=root
       - MYSQL_USER=root
       - MYSQL_DATABASE=adfoodio
-    restart: unless-stopped
+    #restart: unless-stopped
+    
+  postgres:
+    image: postgres:12
+    environment:
+      - POSTGRES_SERVER=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=adfoodio
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 5050:5050
+    environment:
+      - PGADMIN_LISTEN_PORT=5050
+      - PGADMIN_DEFAULT_EMAIL=cenaviat@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin123
+    depends_on:
+      - postgres
