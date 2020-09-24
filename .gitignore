@@ -2,3 +2,7 @@ cache
 .env
 node_modules
 .DS_Store
+postgres-data
+postgres_data
+dbscripts
+tmp
