@@ -26,21 +26,19 @@ import { Omit } from '@material-ui/types';
 
 const categories = [
   {
-    id: 'Category',
+    id: 'Food',
     iconItem: <CategoryIcon />,
     children: [
-      { childId: 'New Category', icon: <AddBoxOutlinedIcon />, active: true, url: '/category' },
-      { childId: 'List Category', icon: <ListAltOutlinedIcon />, url: '/category' },
-      { childId: 'Storage', icon: <PermMediaOutlinedIcon />, url: '/category' },
+      { childId: 'New Food', icon: <AddBoxOutlinedIcon />, active: true, url: '/newfood' },
+      { childId: 'List Food', icon: <ListAltOutlinedIcon />, url: '/listfood' },
     ],
   },
   {
-    id: 'User',
+    id: 'Costumer',
     iconItem: <PeopleIcon />,
     children: [
-      { childId: 'New User', icon: <AddBoxOutlinedIcon />, active: true, url: '/new_category' },
-      { childId: 'List Users', icon: <ListAltOutlinedIcon />, url: '/new_category' },
-      { childId: 'Storage', icon: <PermMediaOutlinedIcon />, url: '/new_category' },
+      { childId: 'New Costumer', icon: <AddBoxOutlinedIcon />, active: true, url: '/new_category' },
+      { childId: 'List Costumer', icon: <ListAltOutlinedIcon />, url: '/new_category' },
     ],
   },
 ];

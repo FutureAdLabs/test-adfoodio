@@ -5,7 +5,7 @@ import Home from '../pages/Home/index';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Menu from '../pages/Menu/index';
 import NotFound from '../pages/NotFound/index';
-import Category from '../components/molecule/Category/index';
+//import Category from '../components/molecule/Category/index';
 //import Content from '../components/molecule/Content/Content';
 
 
@@ -13,9 +13,7 @@ const App: React.FC = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/dashboard" component={Dashboard} >
-        <Route path="/dashboard/category" component={Category} />
-      </Route>
+      <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/menu" component={Menu} />
       <Route component={NotFound} />
     </Switch>
