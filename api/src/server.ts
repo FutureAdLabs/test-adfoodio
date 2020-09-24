@@ -4,12 +4,13 @@ import cors from 'cors';
 import { createConnection } from 'typeorm';
 
 import costumerRoutes from './routes/costumer.routes';
+import foodRoutes from './routes/food.routes';
 
-const port = process.env.NODE_PORT || 3000;
+const port = process.env.NODE_PORT || 4848;
 
 export function run() {
   const app = express();
-  createConnection();
+  createConnection()
 
   //middlewares
   app.use(cors());
@@ -21,6 +22,7 @@ export function run() {
   });
 
   app.use(costumerRoutes);
+  app.use(foodRoutes);
 
   return app.listen(port, function () {
     // Port is forwarded by docker to 80.
