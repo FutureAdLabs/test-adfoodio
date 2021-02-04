@@ -5,7 +5,7 @@ import cors from 'cors'
 import baseRoutes from './routes/base.routes'
 import APIRoutes from './routes/api.routes'
 
-const port = process.env.NODE_PORT || 4848;
+const port = process.env.NODE_PORT || 4849;
 
 export function run () {
   const app = express();
@@ -20,7 +20,7 @@ export function run () {
 
   // Routes
   app.use('/', baseRoutes)
-  app.use('/api', APIRoutes)
+  // app.use('/api', APIRoutes)
 
   // App Listen
   return app.listen(port, function () {

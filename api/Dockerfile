@@ -10,7 +10,7 @@ RUN npm i -g nodemon
 ARG NODE_ENV=development
 
 ENV NODE_ENV=${NODE_ENV}
-ENV NODE_PORT=4848
+ENV NODE_PORT=4849
 
 # 2 Create app folders
 RUN mkdir /api
@@ -26,5 +26,5 @@ RUN npm install
 ADD . ./
 
 # START
-EXPOSE 4848
+EXPOSE 4849
 CMD npm run start

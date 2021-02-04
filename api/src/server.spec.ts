@@ -7,7 +7,7 @@ import { run } from './server';
 chai.use(chaiHttp);
 const { expect } = chai;
 
-const testEndPoint = `http://localhost:4848`;
+const testEndPoint = `http://localhost:4849`;
 describe('Integration tests', function() {
 
   this.beforeAll(function () {

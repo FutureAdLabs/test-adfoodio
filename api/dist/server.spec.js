@@ -14,7 +14,7 @@ const chaiHttp = require("chai-http");
 const server_1 = require("./server");
 chai.use(chaiHttp);
 const { expect } = chai;
-const testEndPoint = `http://localhost:4848`;
+const testEndPoint = `http://localhost:4849`;
 describe('Integration tests', function () {
     this.beforeAll(function () {
         this.server = server_1.run();

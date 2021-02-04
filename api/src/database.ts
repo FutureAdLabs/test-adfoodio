@@ -4,7 +4,7 @@ export async function connect() {
     const connection = await createPool({
         host: 'localhost',
         user: 'root',
-        password: process.env.SQL_PWD,
+        password: 'cuaresma22',
         database: 'adfoodio',
         connectionLimit: 10
     })
