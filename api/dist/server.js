@@ -8,7 +8,7 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const base_routes_1 = __importDefault(require("./routes/base.routes"));
-const port = process.env.NODE_PORT || 4849;
+const port = process.env.NODE_PORT || 4848;
 function run() {
     const app = express_1.default();
     // ref: https://www.youtube.com/watch?v=4clEduk6OQM&t=2650s&ab_channel=Fazt

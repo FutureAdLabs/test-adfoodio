@@ -1,4 +1,4 @@
-import { request, Request, Response } from 'express'
+import { Request, Response } from 'express'
 import { connect } from '../database'
 import { Food } from '../interface/food'
 
@@ -8,7 +8,6 @@ import { Food } from '../interface/food'
 
 
 //Async function to take all foods from DB
-
 export async function getFoods(req: Request, res: Response): Promise<Response | void> {
     try {
         const conn = await connect();
@@ -23,18 +22,15 @@ export async function getFoods(req: Request, res: Response): Promise<Response | 
 }
 
 //Async funtion to create food in the DB
-
 export async function createFood(req: Request, res: Response) {
     const newFood: Food = req.body
     // console.log(newFood)
     const conn = await connect()
-
     conn.query(`INSERT INTO foods SET ?`, [newFood])
     return res.json({ message: "Food created" })
 }
 
 //Async function to take one food from DB
-
 export async function getFood(req: Request, res: Response): Promise<Response | void> {
     const id = req.params.foodId
     const conn = await connect()
@@ -43,7 +39,6 @@ export async function getFood(req: Request, res: Response): Promise<Response | v
 }
 
 //Delete
-
 export async function deleteFood(req: Request, res: Response) {
     const id = req.params.foodId
     const conn = await connect()
@@ -54,7 +49,6 @@ export async function deleteFood(req: Request, res: Response) {
 }
 
 //Edit
-
 export async function updateFood(req: Request, res: Response): Promise<Response | void>  {
     const id = req.params.foodId
     const updateFood:Food = req.body

@@ -1,23 +1,23 @@
 import express from "express";
 import morgan from 'morgan'
 import cors from 'cors'
-
+const bodyParser = require('body-parser')
+import {options} from './configs/cors.config'
 import baseRoutes from './routes/base.routes'
 import APIRoutes from './routes/api.routes'
 
-const port = process.env.NODE_PORT || 4849;
+const port = process.env.NODE_PORT || 4848;
 
-export function run () {
+export function run() {
   const app = express();
 
-  
-  // ref: https://www.youtube.com/watch?v=4clEduk6OQM&t=2650s&ab_channel=Fazt
   // Middlewares
-  app.use(cors())
+  app.use(cors(options))
   app.use(morgan('dev'))
   app.use(express.json())
 
-
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: false }))
   // Routes
   app.use('/', baseRoutes)
   // app.use('/api', APIRoutes)
@@ -29,6 +29,6 @@ export function run () {
   })
 }
 
-if(process.env.NODE_ENV !== 'testing') {
+if (process.env.NODE_ENV !== 'testing') {
   run();
 }
