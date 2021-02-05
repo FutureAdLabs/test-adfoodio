@@ -5,6 +5,7 @@ import Home from '../Home/Home'
 import Signin from '../Signin/Signin'
 import Navigation from '../../components/Navigation/Navigation'
 import Footer from '../../components/Footer/Footer'
+import Foods from '../Foods/Foods';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
       <Switch>
         <Route exact path="/"><Home /></Route>
         <Route path="/signin"><Signin /></Route>
+        <Route path="/foods"><Foods></Foods></Route>
+
       </Switch>
       <Footer/>
     </BrowserRouter>
