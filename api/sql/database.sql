@@ -21,6 +21,12 @@ CREATE TABLE users(
 
 ALTER TABLE foods
   ADD image_url TEXT NOT NULL
+
+
+
+
+ALTER TABLE foods
+  ADD type_of TEXT NOT NULL
 DESCRIBE foods;
 -- CREATE TABLE drinks(
 --     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY;

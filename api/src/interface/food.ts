@@ -4,5 +4,7 @@ export interface Food {
     foodName: String;
     description: String;
     price: Number;
-    created_at?: Date
+    created_at?: Date;
+    type_of: String;
+    preparation_time:Number
 }

@@ -4,13 +4,16 @@ import './index.css';
 import App from './pages/App/App';
 import * as serviceWorker from './serviceWorker';
 import { AuthProvider} from './context/AuthContext'
+import { AppProvider} from './context/AppContext'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <AppProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

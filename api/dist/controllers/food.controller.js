@@ -21,7 +21,6 @@ function getFoods(req, res) {
             const foods = yield conn.query('SELECT * FROM foods');
             // console.log(foods)
             //[0] because the info is in this position
-            (console.log("entro aqui"));
             return res.json(foods[0]);
         }
         catch (e) {

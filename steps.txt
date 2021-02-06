@@ -39,3 +39,6 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 11. Add a read point (getFoods) from the food.controller.ts with connect() to link server with db
 
 12. Add a create method (createFood) from the food.controller.ts
+
+
+1. ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234'
