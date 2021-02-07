@@ -3,6 +3,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './Navigation.css'
 import NoUserPic from './NoUserWhite.png'
+import NavMenu from './NavMenu'
 
 const Navigation = () => {
     const [burger, setBurger] = useState({
@@ -105,10 +106,11 @@ const Navigation = () => {
                 </Link>
 
 
-                <Link onClick={() => handleHideClick()} className="BarLink" to="/link1"><li>Link 1</li></Link>
+                <NavMenu/>
+                {/* <Link onClick={() => handleHideClick()} className="BarLink" to="/link1"><li>Link 1</li></Link>
                 <Link onClick={() => handleHideClick()} className="BarLink" to="/link2"><li>Link 2</li></Link>
                 <Link onClick={() => handleHideClick()} className="BarLink" to="/link3"><li>Link 3</li></Link>
-                <Link onClick={() => handleHideClick()} className="BarLink" to="/link4"><li>Link 4</li></Link>
+                <Link onClick={() => handleHideClick()} className="BarLink" to="/link4"><li>Link 4</li></Link> */}
 
 
             </div>

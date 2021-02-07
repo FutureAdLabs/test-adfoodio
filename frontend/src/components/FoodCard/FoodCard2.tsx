@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { AppContext } from '../../context/AppContext';
+import Grid, { GridSpacing } from '@material-ui/core/Grid';
+
 
 const useStyles = makeStyles({
   root: {
@@ -23,10 +24,11 @@ const FoodCard2 = (props:any) => {
 
   const handleAdd = () => {
       console.log('handleAdd')
-      App.setApp([...App.app, props.food])
+      App.setApp({...App.app, order: [...App.app.order, props.food]})
   }
 
   return (
+    <Grid item xs={6}>
     <Card className={classes.root}>
         <CardMedia
           component="img"
@@ -52,6 +54,7 @@ const FoodCard2 = (props:any) => {
         </Button>
       </CardActions>
     </Card>
+    </Grid>
   );
 }
 

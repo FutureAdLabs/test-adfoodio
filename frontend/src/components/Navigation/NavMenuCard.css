@@ -1,0 +1,9 @@
+.removeElm {
+  background-color: rgb(114, 26, 11);
+  padding: 5px 8px;
+  margin-left: 8px;
+  border-radius: 50%;
+  font-weight: lighter;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.344);
+  cursor: pointer;
+}
