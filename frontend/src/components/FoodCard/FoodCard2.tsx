@@ -7,22 +7,31 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { AppContext } from '../../context/AppContext';
+import { NotifContext } from '../../context/NofifContext';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    margin: "0 auto", 
+    marginTop:"25px",
   },
+  Button:{
+    margin: "0 auto", 
+    backgroundColor:"#2C3E50",
+  }
 });
 
 const FoodCard2 = (props:any) => {
+
+  const Notif:any = useContext(NotifContext)
 
   const App: any = useContext(AppContext)
 
   const classes = useStyles();
 
   const handleAdd = () => {
-      console.log('handleAdd')
       App.setApp({...App.app, order: [...App.app.order, props.food]})
+      Notif.run({type:"success", msg:"Your food was added to your order"})
   }
 
   return (
@@ -42,11 +51,14 @@ const FoodCard2 = (props:any) => {
           {props.food.description}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <strong>{props.food.price}</strong> €
+          Price: <strong>{props.food.price}</strong> €
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          Estimated preparation time: <strong>{props.food.preparation_time}</strong> minutes
           </Typography>
         </CardContent>
       <CardActions>
-        <Button size="small" color="primary" onClick={handleAdd}>
+        <Button className={classes.Button} variant="contained" size="small" color="primary" onClick={handleAdd}>
           ADD TO ORDER
         </Button>
       </CardActions>

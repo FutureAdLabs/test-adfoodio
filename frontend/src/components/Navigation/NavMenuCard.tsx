@@ -1,9 +1,11 @@
 import "./NavMenuCard.css";
 import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { NotifContext } from "../../context/NofifContext";
 
 const NavMenuCard = (props: any) => {
   const App: any = useContext(AppContext);
+  const Notif:any = useContext(NotifContext)
 
   const removeElm = async () => {
     let array = App.app.order;
@@ -22,6 +24,7 @@ const NavMenuCard = (props: any) => {
       }
     });
     App.setApp({ ...App.app, order: arrayCopy });
+    Notif.run({type: "warning", msg: "Element removed for your order"})
   };
 
   return (

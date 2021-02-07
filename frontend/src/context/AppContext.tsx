@@ -4,7 +4,7 @@ export const AppContext = React.createContext({});
 
 export const AppProvider: React.FC = ({ children }) => {
   const [app, setApp] = useState({ order: [], amount: {} });
-  const [menu, setMenu] = useState({});
+  const [menu, setMenu] = useState({ desserts:[String], mains:[String], drinks:[String], discount40:[String], discount10:[String], totalBill:0});
   useEffect(() => {
     /* eslint-disable */
 
@@ -45,18 +45,16 @@ export const AppProvider: React.FC = ({ children }) => {
         }
       }
       // Setear MENU
-      setMenu({ desserts, mains, drinks, discount40, discount10 });
-      let totalAcount = 0;
+      let totalBill = 0;
 
-      desserts.forEach(elm=> totalAcount=elm.price+totalAcount)
-      mains.forEach(elm=> totalAcount=elm.price+totalAcount)
-      drinks.forEach(elm=> totalAcount=elm.price+totalAcount)
-      discount10.forEach(elm=> totalAcount= (elm.price * 0.9)+totalAcount)
-      totalAcount= totalAcount+(discount40.length/5*40)
+      desserts.forEach(elm=> totalBill=elm.price+totalBill)
+      mains.forEach(elm=> totalBill=elm.price+totalBill)
+      drinks.forEach(elm=> totalBill=elm.price+totalBill)
+      discount10.forEach(elm=> totalBill= (elm.price * 0.9)+totalBill)
+      totalBill= totalBill+(discount40.length/5*40)
 
-      console.log(totalAcount.toFixed(2))
-
-
+      console.log(totalBill.toFixed(2))
+      setMenu({ desserts, mains, drinks, discount40, discount10, totalBill });
     }
   }, [app]);
 

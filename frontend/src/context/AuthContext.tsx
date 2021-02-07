@@ -8,7 +8,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     fireAuth.onAuthStateChanged((user) => {
-      console.log('HAY USER')
       if (user) {
         setAuth({
           userName: user.displayName,
@@ -16,8 +15,6 @@ export const AuthProvider: React.FC = ({ children }) => {
           userMail: user.email,
           userPhoto: user.photoURL
         })
-      } else {
-        console.log('NO HAY USER!')
       }
     })
   }, [])

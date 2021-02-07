@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getFoods } from "../../service/foods.service";
 import FoodCard2 from "../../components/FoodCard/FoodCard2";
-import Grid, { GridSpacing } from "@material-ui/core/Grid";
+import Grid from "@material-ui/core/Grid";
 import './Foods.css'
 
 const Foods = () => {
@@ -12,12 +12,14 @@ const Foods = () => {
   }, []);
   return (
     <>
-      <h1>Foods</h1>
       <div className="mainGridDiv">
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid 
+          container
+          justify="center"
+          >
           {foods.length > 1
             ? foods.map((elm, idx) => (
-                <Grid container item xs={5} spacing={3} key={idx}>
+                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={idx}>
                   <FoodCard2 food={elm} />
                 </Grid>
               ))

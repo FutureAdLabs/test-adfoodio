@@ -4,7 +4,7 @@ import NavMenuCard from "./NavMenuCard";
 
 const NavMenu = () => {
   const App: any = useContext(AppContext);
-  console.log("App", App.menu);
+  console.log('App', App)
 
   useEffect(() => {
     console.log("NavMenu useEffect:");
@@ -12,7 +12,7 @@ const NavMenu = () => {
 
   return (
     <>
-      {App.menu.desserts ? (
+      {App.menu.totalBill !== 0 ? (
         <>
           {App.menu.discount40.length > 0 && (
             <li>
@@ -69,7 +69,11 @@ const NavMenu = () => {
             </li>
           )}
         </>
-      ) : null}
+      ) : 
+      <h2 style={{ textAlign: "center", color: "white" }}>
+        You have no order yet
+      </h2>      
+      }
     </>
   );
 };

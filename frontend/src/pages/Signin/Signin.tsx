@@ -17,19 +17,14 @@ const Signin = () => {
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((res) => {
         newUser({ email: user.email });
-        console.log("user.email", user.email);
         //service
-        console.log("res", res);
       })
       .catch((err) => {
-        console.log("err1", err);
         fireAuth
           .signInWithEmailAndPassword(user.email, user.password)
           .then((ros) => {
-            console.log("ros", ros);
           })
           .catch((err) => {
-            console.log("err2", err);
           });
       });
   };

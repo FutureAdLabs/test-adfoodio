@@ -58,16 +58,11 @@ const Navigation = () => {
                     <div className={burger.burger2}></div>
                     <div className={burger.burger3}></div>
                 </div>
+                <h4 className="yourOrder" onClick={()=>handleBurgerClick()}>Your order</h4>
                 {/* => NAV LOGO <= */}
                 <div style={{ position: "absolute", margin: '0 auto', marginLeft: 'calc(50% - 20px)', cursor: "pointer" }}>
-                    <Link onClick={() => handleHideClick()} to='/'>
-                        <img
-                            src='/favicon.ico'
-                            width='40'
-                            height='40'
-                            style={{ marginTop: '10px' }}
-                            alt='myAlt'
-                        ></img>
+                    <Link onClick={() => handleHideClick()} to='/' className="linkClass">
+                       <h2 style={{textDecoration:"none"}}>Adfoodio</h2>
                     </Link>
                 </div>
                 {/* => NAV USER PHOTO<= */}
@@ -90,20 +85,6 @@ const Navigation = () => {
 
 
             <div className={[burger.sidebar, "Navbar Dark"].join(" ")}>
-
-                <Link onClick={() => handleHideClick()} className="BarLink" to="/signin">
-                    <li>
-                        <img
-                            src={NoUserPic}
-                            className="BarUserPic"
-                            width="80"
-                            height="80"
-                            style={{ borderRadius: "50%", marginLeft: "30%", marginTop: "0px" }}
-                            alt="UserPic"
-                        />
-                        <div style={{ textAlign: "center" }}>Inicia Sesión</div>
-                    </li>
-                </Link>
 
 
                 <NavMenu/>
