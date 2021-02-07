@@ -7,8 +7,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { AppContext } from '../../context/AppContext';
-import Grid, { GridSpacing } from '@material-ui/core/Grid';
-
 
 const useStyles = makeStyles({
   root: {
@@ -28,7 +26,6 @@ const FoodCard2 = (props:any) => {
   }
 
   return (
-    <Grid item xs={6}>
     <Card className={classes.root}>
         <CardMedia
           component="img"
@@ -54,7 +51,6 @@ const FoodCard2 = (props:any) => {
         </Button>
       </CardActions>
     </Card>
-    </Grid>
   );
 }
 

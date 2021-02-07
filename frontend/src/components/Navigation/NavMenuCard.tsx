@@ -5,10 +5,23 @@ import { AppContext } from "../../context/AppContext";
 const NavMenuCard = (props: any) => {
   const App: any = useContext(AppContext);
 
-  const removeElm = () => {
+  const removeElm = async () => {
     let array = App.app.order;
-   console.log( array.indexOf(props))
-   
+
+    let arrayCopy: any[] = [];
+    let found = false;
+    array.forEach((elm: any) => {
+      if (elm.foodName === props.foodName) {
+        if (!found) {
+          found = true;
+        } else {
+          arrayCopy.push(elm);
+        }
+      } else {
+        arrayCopy.push(elm);
+      }
+    });
+    App.setApp({ ...App.app, order: arrayCopy });
   };
 
   return (
