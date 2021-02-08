@@ -7,3 +7,20 @@
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.344);
   cursor: pointer;
 }
+
+.totalTitle{
+  text-align: center;
+}
+
+.totalLi{
+  display:flex;
+  justify-content: space-evenly;
+}
+.withDisc{
+  white-space: nowrap;
+margin-left: 10px;
+}
+.withoutDisc{
+  color:#f8f1f18e;
+  font-weight: lighter;
+}

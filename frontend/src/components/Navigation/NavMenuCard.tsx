@@ -5,7 +5,7 @@ import { NotifContext } from "../../context/NofifContext";
 
 const NavMenuCard = (props: any) => {
   const App: any = useContext(AppContext);
-  const Notif:any = useContext(NotifContext)
+  const Notif: any = useContext(NotifContext);
 
   const removeElm = async () => {
     let array = App.app.order;
@@ -24,7 +24,7 @@ const NavMenuCard = (props: any) => {
       }
     });
     App.setApp({ ...App.app, order: arrayCopy });
-    Notif.run({type: "warning", msg: "Element removed for your order"})
+    Notif.run({ type: "warning", msg: "Element removed for your order" });
   };
 
   return (
@@ -32,7 +32,18 @@ const NavMenuCard = (props: any) => {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h5>{props.foodName}</h5>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <h4>{props.price}€</h4>
+          {props.discount ? (
+            props.disc40 ? (
+              <s className="withoutDisc">{props.price}€</s>
+            ) : (
+              <>
+                <s className="withoutDisc">{props.price}€</s>
+                <h4 className="withDisc"> {props.price * 0.9} €</h4>
+              </>
+            )
+          ) : (
+            <h4>{props.price}€</h4>
+          )}
           <div className="removeElm" onClick={removeElm}>
             x
           </div>
