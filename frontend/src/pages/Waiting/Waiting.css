@@ -1,0 +1,45 @@
+
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('../../components/Fonts/digital-7.ttf');
+   }
+   #countdown {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 100px;
+    border: 4px solid #243966;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #E1F2FF ;
+    min-width: 200px;
+    padding-bottom: 40px;
+
+}
+
+.countDiv{
+border: 4px solid #243966;
+width: fit-content;
+margin: 0 auto;
+margin-top: -100px;
+padding:10px;
+border-radius: 8px;
+box-shadow: 0 0 10px 2px rgb(148, 148, 148);
+background-color: #BF8DA4;
+font-family:'digital-clock-font';
+color: #243966
+}
+
+.resetBtn {
+    border: 4px solid #243966;
+width: fit-content;
+margin: 0 auto;
+
+padding:10px;
+border-radius: 8px;
+box-shadow: 0 0 3px 1px #243966;
+background-color: #ffffff;
+font-family:'digital-clock-font';
+color: #243966;
+cursor: pointer;
+}

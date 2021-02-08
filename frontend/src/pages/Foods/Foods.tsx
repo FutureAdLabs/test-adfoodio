@@ -15,7 +15,7 @@ const Foods = () => {
   }, []);
   return (
     <>
-      {App.menu.preparing === true && <Redirect to="waiting"/>}
+      {App.menu.preparing === "true" ? <Redirect to="waiting"/> : null}
       <div className="mainGridDiv">
         <Grid 
           container

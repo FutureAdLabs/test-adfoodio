@@ -216,6 +216,11 @@ input:checked + .slider:before {
   text-decoration: none;
   color: white;
 }
+
+.linkClass h2{
+  margin-left: -20px;
+  font-size: 20px;
+}
 .yourOrder{
   position:absolute;
   margin-left:50px;

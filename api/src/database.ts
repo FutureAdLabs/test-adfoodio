@@ -10,3 +10,4 @@ export async function connect() {
     })
     return connection
 }
+// mysql -h b4pesu3oy3hmjgdsjqbb-mysql.services.clever-cloud.com -P 3306 -u u9ernpi7xwolltwa -p b4pesu3oy3hmjgdsjqbb

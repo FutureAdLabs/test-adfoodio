@@ -13,13 +13,13 @@ const NavMenu = () => {
   }, []);
 
   const handleAdd = () => {
-    // makeOrder(App.menu)
+    makeOrder(App.menu)
     let timeInit:number = Date.now()
     let timeEnd:number = timeInit + (App.menu.totalTime * 60000)
     localStorage.setItem('preparing', "true")
     localStorage.setItem('timeInit', timeInit.toString())
     localStorage.setItem('timeEnd', timeEnd.toString())
-    App.setMenu({...App.menu, preparing: true, timeInit, timeEnd})
+    App.setMenu({...App.menu, preparing: "true", timeInit, timeEnd})
   };
   return (
     <>
