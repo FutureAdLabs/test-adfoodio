@@ -4,16 +4,19 @@ import NavMenuCard from "./NavMenuCard";
 import Button from "@material-ui/core/Button";
 import './NavMenu.css'
 import {makeOrder} from '../../service/foods.service'
+import { AuthContext } from '../../context/AuthContext'
 
 
 const NavMenu = () => {
+  const Auth:any = useContext(AuthContext)
+
   const App: any = useContext(AppContext);
   useEffect(() => {
     console.log("NavMenu useEffect:");
   }, []);
 
   const handleAdd = () => {
-    makeOrder(App.menu)
+    makeOrder({app:App.menu, email:Auth.auth.userMail})
     let timeInit:number = Date.now()
     let timeEnd:number = timeInit + (App.menu.totalTime * 60000)
     localStorage.setItem('preparing', "true")
@@ -85,7 +88,9 @@ const NavMenu = () => {
               <h2 className="totalTitle">Total </h2>
               <h2>{App.menu.totalBill} €</h2>
             </div>
+            <div style={{textAlign:"center"}}>
             <Button
+              style={{backgroundColor:"white"}}
               className="confirmBtn"
               variant="contained"
               size="small"
@@ -93,6 +98,7 @@ const NavMenu = () => {
             >
               CONFIRM ORDER
             </Button>
+            </div>
           </li>
         </>
       ) : (

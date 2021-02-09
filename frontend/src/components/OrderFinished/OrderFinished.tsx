@@ -1,13 +1,46 @@
-import React from 'react'
-import Landing from '../Landing/Landing'
-import './OrderFinished.css'
+import React from "react";
+import Landing from "../Landing/Landing";
+import "./OrderFinished.css";
+import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
+
 
 const OrderFinished = () => {
-    return (
-        <>
-            <Landing to="/foods" msg="YOUR FOOD IS READY!" btn="Another order" img="https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"/>
-        </>
-    )
-}
+  return (
+    <>
+      <div className="penguin">
+        <div className="penguin-bottom">
+          <div className="right-hand"></div>
+          <div className="left-hand"></div>
+          <div className="right-feet"></div>
+          <div className="left-feet"></div>
+        </div>
+        <div className="penguin-top">
+          <div className="right-cheek"></div>
+          <div className="left-cheek"></div>
+          <div className="belly"></div>
+          <div className="right-eye">
+            <div className="sparkle"></div>
+          </div>
+          <div className="left-eye">
+            <div className="sparkle"></div>
+          </div>
+          <div className="blush-right"></div>
+          <div className="blush-left"></div>
+          <div className="beak-top"></div>
+          <div className="beak-bottom"></div>
+        </div>
+      </div>
+      <div style={{ textAlign: "center" }}>
+      <h1>Your order is ready!</h1>
+      <Link to="/foods">
+      <Button variant="contained" color="primary" style={{backgroundColor:"#2C3E50"}}>
+        MAKE ANOTHER ORDER
+      </Button>
+      </Link>
+      </div>
+    </>
+  );
+};
 
-export default OrderFinished
+export default OrderFinished;
