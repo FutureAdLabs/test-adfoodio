@@ -2,7 +2,7 @@ import { Router } from 'express'
 const router = Router()
 import {getFoods, createFood, getFood, deleteFood, updateFood} from '../controllers/food.controller'
 
-import {getUsers, newUser} from '../controllers/user.controller'
+import {getUser, newUser} from '../controllers/user.controller'
 import {newOrder} from '../controllers/order.controller'
 
 
@@ -13,8 +13,8 @@ router.route('/newOrder')
 router.route('/newUser')
     .post(newUser)
     
-router.route('/getUsers')
-    .get(getUsers)
+router.route('/getUser')
+    .post(getUser)
 
 router.route('/')
     .get(getFoods)

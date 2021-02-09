@@ -17,4 +17,11 @@ export const newUser = (credentials: Object) => {
 
 
 
+export const getUser = async(props: any) => {
+  const response = await apiHandler.post('/getUser', props)
+  return response
+
+}
+
+
 

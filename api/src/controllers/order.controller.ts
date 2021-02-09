@@ -16,8 +16,8 @@ export async function newOrder(req: Request, res: Response) {
   const totalTime = req.body.app.totalTime;
   const timeInit = req.body.app.timeInit;
   const timeEnd = req.body.app.timeEnd;
-  const id= Date.now()
-  let newOrder:any = {
+  const id = Date.now();
+  let newOrder: any = {
     desserts: desserts,
     mains: mains,
     drinks: drinks,
@@ -27,16 +27,17 @@ export async function newOrder(req: Request, res: Response) {
     totalTime: totalTime,
     timeInit: timeInit,
     timeEnd: timeEnd,
-    id: id
+    id: id,
   };
   const conn = await connect();
-  newOrder = JSON.stringify(newOrder)
-  console.log("neworder", newOrder, "type", typeof newOrder);
+  newOrder = JSON.stringify(newOrder);
+  const newId = JSON.stringify({ id: id });
   conn.query(`INSERT INTO orders SET ?`, { sentence: newOrder });
-
-
-  await conn.query('UPDATE users set orders= ? WHERE email = ? ', [id, req.body.email])
-
+  console.log(req.body.email, id);
+  await conn.query(
+    'UPDATE users set orders = JSON_ARRAY_APPEND(orders, "$.id", ?) WHERE email = ? ',
+    [id, req.body.email]
+  );
 
   return res.json({ message: "Order created" });
 }

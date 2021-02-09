@@ -11,7 +11,6 @@ const apiHandler = axios.create({
 
 export const getFoods = async() => {
     const response = await apiHandler.get('/')
-
     return response
 }
 
