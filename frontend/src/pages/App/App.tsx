@@ -10,6 +10,8 @@ import Waiting2 from '../Waiting/Waiting';
 import { AuthContext } from '../../context/AuthContext';
 import Profile from '../Profile/Profile';
 
+
+// Using AuthCtx upper app to check the Auth Status on every component
 function App() {
   const AuthCtx:any = useContext(AuthContext)
   return (

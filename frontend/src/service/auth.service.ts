@@ -11,7 +11,6 @@ const apiHandler = axios.create({
 
 export const newUser = (credentials: Object) => {
     apiHandler.post('/newUser', credentials)
-    console.log(credentials)
 }
 
 

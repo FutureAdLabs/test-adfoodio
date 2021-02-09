@@ -3,6 +3,8 @@ import './NotifContext.css'
 
 export const NotifContext = React.createContext({});
 
+// This context provides a top-app-level of notification system
+// Runnning "Notif.run" and setting type and message you got the notification
 export const NotifProvider: React.FC = ({ children }) => {
 
     const [Notif, setNotif] = useState({start:false, type:null, msg:null});

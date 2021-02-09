@@ -1,12 +1,14 @@
 import { Button } from '@material-ui/core'
 import React from 'react'
-import './LogoutBtn.css'
+import { fireAuth } from '../../firebase'
 
-
+// Main Function
 const LogoutBtn = () => {
 
+
+  //Logout with firebase authentication
     const handleLogout = () => {
-        console.log('handleLogout')
+        fireAuth.signOut()
     }
 
     return (

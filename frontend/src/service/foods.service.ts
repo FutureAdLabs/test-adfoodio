@@ -18,7 +18,6 @@ export const getFoods = async() => {
 
 export const makeOrder = async(props:Object) => {
     const response = await apiHandler.post('/newOrder', props)
-    console.log(props)
     return response
 }
 

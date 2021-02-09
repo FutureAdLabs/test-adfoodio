@@ -6,9 +6,8 @@ const Footer = () => {
     return (
         <>
             <footer className='Dark'>
-                <div className='mainFooterTitle'>© 2021 myApp</div>
+                <div className='mainFooterTitle'>© 2021 adfoodio</div>
             </footer>
-
         </>
     )
 }

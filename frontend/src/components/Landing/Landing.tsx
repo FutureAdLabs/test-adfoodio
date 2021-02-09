@@ -4,6 +4,8 @@ import { Button } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit'
 import React from 'react';
 
+
+// Main function
 const Landing = (props:any) => {
     return (
         <>             

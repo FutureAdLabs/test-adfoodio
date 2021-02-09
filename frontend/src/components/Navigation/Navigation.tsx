@@ -5,6 +5,7 @@ import './Navigation.css'
 import NoUserPic from './NoUserWhite.png'
 import NavMenu from './NavMenu'
 
+// This is the navbar. Also is the checker of the order at NavMenu
 const Navigation = () => {
     const [burger, setBurger] = useState({
         burger1: 'spinner diagonal part-1',
@@ -77,28 +78,11 @@ const Navigation = () => {
                     />
                 </Link>
             </div>
-            {/* ===> MODAL <=== */}
+            {/* ===> MODAL PART <=== */}
             <div className={burger.SubSidebar} onClick={() => handleHideClick()}></div>
-
-
-
-
-
             <div className={[burger.sidebar, "Navbar Dark"].join(" ")}>
-
-
                 <NavMenu/>
-                {/* <Link onClick={() => handleHideClick()} className="BarLink" to="/link1"><li>Link 1</li></Link>
-                <Link onClick={() => handleHideClick()} className="BarLink" to="/link2"><li>Link 2</li></Link>
-                <Link onClick={() => handleHideClick()} className="BarLink" to="/link3"><li>Link 3</li></Link>
-                <Link onClick={() => handleHideClick()} className="BarLink" to="/link4"><li>Link 4</li></Link> */}
-
-
             </div>
-
-
-
-
         </>
     )
 }

@@ -1,12 +1,9 @@
 import { Request, Response } from "express";
 import { connect } from "../database";
 
-//connect is the configuration to access to the DB
-//this controllers are invoqued in base.routes.ts
 
-//Async funtion to create food in the DB
+//Async funtion to create orders in the DB and relate them to the user
 export async function newOrder(req: Request, res: Response) {
-  //   console.log(req.body);
   const desserts = req.body.app.desserts;
   const mains = req.body.app.mains;
   const drinks = req.body.app.drinks;
@@ -29,15 +26,19 @@ export async function newOrder(req: Request, res: Response) {
     timeEnd: timeEnd,
     id: id,
   };
+  
+  // Connect with DDBB and set the order
   const conn = await connect();
   newOrder = JSON.stringify(newOrder);
   const newId = JSON.stringify({ id: id });
   conn.query(`INSERT INTO orders SET ?`, { sentence: newOrder });
-  console.log(req.body.email, id);
+
+  // Async Query DDBB
   await conn.query(
     'UPDATE users set orders = JSON_ARRAY_APPEND(orders, "$.id", ?) WHERE email = ? ',
     [id, req.body.email]
   );
+  conn.end()
 
   return res.json({ message: "Order created" });
 }

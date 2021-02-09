@@ -2,19 +2,17 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
 import NavMenuCard from "./NavMenuCard";
 import Button from "@material-ui/core/Button";
-import './NavMenu.css'
 import {makeOrder} from '../../service/foods.service'
 import { AuthContext } from '../../context/AuthContext'
 
-
+// Order checker on Sidebar Nav
 const NavMenu = () => {
   const Auth:any = useContext(AuthContext)
-
   const App: any = useContext(AppContext);
-  useEffect(() => {
-    console.log("NavMenu useEffect:");
-  }, []);
 
+  
+  //Function to add the order to the DDBB
+  //Also set the actual order in localStorage to rescue data easily
   const handleAdd = () => {
     makeOrder({app:App.menu, email:Auth.auth.userMail})
     let timeInit:number = Date.now()
@@ -22,10 +20,13 @@ const NavMenu = () => {
     localStorage.setItem('preparing', "true")
     localStorage.setItem('timeInit', timeInit.toString())
     localStorage.setItem('timeEnd', timeEnd.toString())
+    localStorage.setItem('actualOrder', "true")
     App.setMenu({...App.menu, preparing: "true", timeInit, timeEnd})
   };
+
   return (
     <>
+      {/* This Component check all the existing data and show it to the client*/}
       {App.menu.totalBill !== 0 ? (
         <>
           {App.menu.discount40.length > 0 && (
@@ -88,6 +89,8 @@ const NavMenu = () => {
               <h2 className="totalTitle">Total </h2>
               <h2>{App.menu.totalBill} €</h2>
             </div>
+
+            {App.menu.preparing === "false" ? 
             <div style={{textAlign:"center"}}>
             <Button
               style={{backgroundColor:"white"}}
@@ -98,7 +101,10 @@ const NavMenu = () => {
             >
               CONFIRM ORDER
             </Button>
-            </div>
+          </div>    
+          : null        
+          }
+
           </li>
         </>
       ) : (

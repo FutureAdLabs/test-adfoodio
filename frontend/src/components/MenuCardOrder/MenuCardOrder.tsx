@@ -1,31 +1,8 @@
 import "./MenuCardOrder.css";
 import React, { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
-import { NotifContext } from "../../context/NofifContext";
 
+// This function works on the user profile to check the past orders
 const MenuCardOrder = (props: any) => {
-  const App: any = useContext(AppContext);
-  const Notif: any = useContext(NotifContext);
-
-  const removeElm = async () => {
-    let array = App.app.order;
-
-    let arrayCopy: any[] = [];
-    let found = false;
-    array.forEach((elm: any) => {
-      if (elm.foodName === props.foodName) {
-        if (!found) {
-          found = true;
-        } else {
-          arrayCopy.push(elm);
-        }
-      } else {
-        arrayCopy.push(elm);
-      }
-    });
-    App.setApp({ ...App.app, order: arrayCopy });
-    Notif.run({ type: "warning", msg: "Element removed for your order" });
-  };
 
   return (
     <>

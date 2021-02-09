@@ -15,7 +15,7 @@ const database_1 = require("../database");
 function newUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const newUser = req.body;
-        // console.log(newFood)
+
         const conn = yield database_1.connect();
         conn.query(`INSERT INTO users SET ?`, [newUser]);
         return res.json({ message: "Food created" });

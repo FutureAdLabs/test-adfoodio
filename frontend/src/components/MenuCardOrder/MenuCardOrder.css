@@ -16,10 +16,12 @@
   display:flex;
   justify-content: space-evenly;
 }
+
 .withDisc{
   white-space: nowrap;
-margin-left: 10px;
+  margin-left: 10px;
 }
+
 .withoutDisc{
   color:#f8f1f18e;
   font-weight: lighter;

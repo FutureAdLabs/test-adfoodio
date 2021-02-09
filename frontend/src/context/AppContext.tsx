@@ -1,30 +1,38 @@
+import { ArrowRightAltTwoTone } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 
 export const AppContext = React.createContext({});
 
 export const AppProvider: React.FC = ({ children }) => {
   const [app, setApp] = useState({ order: [], amount: {} });
+
+  // First check on localStorage for optimizing data persistance
   const [menu, setMenu] = useState({
-    desserts: [String],
-    mains: [String],
-    drinks: [String],
-    discount40: [String],
-    discount10: [String],
-    totalBill: 0,
-    totalTime: 0,
+    desserts: localStorage.getItem('desserts') ? JSON.parse(localStorage.getItem('desserts')!) : [String],
+    mains: localStorage.getItem('mains') ? JSON.parse(localStorage.getItem('mains')!) :  [String],
+    drinks: localStorage.getItem('drinks') ? JSON.parse(localStorage.getItem('drinks')!) :  [String],
+    discount40: localStorage.getItem('discount40') ? JSON.parse(localStorage.getItem('discount40')!) :  [String],
+    discount10: localStorage.getItem('discount10') ? JSON.parse(localStorage.getItem('discount10')!) :  [String],
+    totalBill:  localStorage.getItem('totalBill') ? parseFloat(localStorage.getItem('totalBill')!) :  0,
+    totalTime: localStorage.getItem('totalTime') ? parseFloat(localStorage.getItem('totalTime')!) :   0,
     preparing: localStorage.getItem('preparing') ? localStorage.getItem('preparing') : "false",
-    timeInit: localStorage.getItem('timeInit') ? localStorage.getItem('timeInit') : 0,
-    timeEnd: localStorage.getItem('timeEnd') ? localStorage.getItem('timeEnd') : 0,
+    timeInit: localStorage.getItem('timeInit') ? parseFloat(localStorage.getItem('timeInit')!) : 0,
+    timeEnd: localStorage.getItem('timeEnd') ? parseFloat(localStorage.getItem('timeEnd')!) : 0,
   });
 
+  // Main functions that calculates the order's price and preparation time
+  // Also, sets the order in localStorage for data persistance
+  // This should be divided into smaller procedures :(
+    
   useEffect(() => {
     /* eslint-disable */
-
     let drinks: any[] = [];
     let mains: any[] = [];
     let desserts: any[] = [];
     let discount40: any[] = [];
     let discount10 = [];
+
+    // Classifies the type of food by strings
     if (app.order) {
       app.order.forEach((elm: any) => {
         if (elm.type_of === "dessert") {
@@ -35,6 +43,8 @@ export const AppProvider: React.FC = ({ children }) => {
           drinks.push(elm);
         }
       });
+
+      // Calculates, from highest bid to lowest bid, which foods are on sale
       var i = 0;
       while (i < app.order.length) {
         if (desserts.length >= 1 && mains.length >= 2 && drinks.length >= 2) {
@@ -56,7 +66,8 @@ export const AppProvider: React.FC = ({ children }) => {
           i++;
         }
       }
-      // Setear MENU
+      
+      // Getting final PRICE and TIME of each actual element
       let totalBill = 0;
       let totalTime = 0;
 
@@ -85,16 +96,32 @@ export const AppProvider: React.FC = ({ children }) => {
       });
       totalBill = totalBill + (discount40.length / 5) * 40;
 
-
-      setMenu({...menu, 
-        desserts,
-        mains,
-        drinks,
-        discount40,
-        discount10,
-        totalBill,
-        totalTime,
-      });
+      if (localStorage.getItem('actualOrder') !== "true") {
+        setMenu({...menu, 
+          desserts,
+          mains,
+          drinks,
+          discount40,
+          discount10,
+          totalBill,
+          totalTime,
+        });
+      }
+      
+      // Set localStorage too for data persistance
+      const StringConversor = (array:any) => {
+        const result = JSON.stringify(array)
+        return result
+      }
+      if (localStorage.getItem('actualOrder') !== "true") {
+      localStorage.setItem('desserts', StringConversor(desserts))
+      localStorage.setItem('mains', StringConversor(mains))
+      localStorage.setItem('drinks', StringConversor(drinks))
+      localStorage.setItem('discount40', StringConversor(discount40))
+      localStorage.setItem('discount10', StringConversor(discount10))
+      localStorage.setItem('totalBill', totalBill.toString())
+      localStorage.setItem('totalTime', totalTime.toString())
+      }
     }
   }, [app]);
 

@@ -1,9 +1,9 @@
 import React from "react";
-import "./OrderCard.css";
 import MenuCardOrder from "../MenuCardOrder/MenuCardOrder";
 
+
+// Shows the previous orders of the user's profile page
 const OrderCard = (props: any) => {
-  console.log("OrderCard props:", props);
   return (
     <>
       {props.discount40.length > 0 && (

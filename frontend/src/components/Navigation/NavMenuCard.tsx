@@ -7,11 +7,12 @@ const NavMenuCard = (props: any) => {
   const App: any = useContext(AppContext);
   const Notif: any = useContext(NotifContext);
 
+  // Function to remove foods from the order
   const removeElm = async () => {
     let array = App.app.order;
-
     let arrayCopy: any[] = [];
     let found = false;
+    
     array.forEach((elm: any) => {
       if (elm.foodName === props.foodName) {
         if (!found) {
@@ -23,6 +24,7 @@ const NavMenuCard = (props: any) => {
         arrayCopy.push(elm);
       }
     });
+    // Setting in AppContext as global variables in session
     App.setApp({ ...App.app, order: arrayCopy });
     Notif.run({ type: "warning", msg: "Element removed for your order" });
   };

@@ -1,18 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connect = void 0;
-// import { createPool } from 'mysql2/promise'
 var mysql = require('mysql');
-// export async function connect() {
-//     const connection = await createPool({
-//         host: 'localhost',
-//         user: 'root',
-//         password: 'cuaresma22',
-//         database: 'adfoodio',
-//         connectionLimit: 10
-//     })
-//     return connection
-// }
 exports.connect = mysql.createConnection({
     host: "localhost",
     user: "root",

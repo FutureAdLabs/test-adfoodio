@@ -1,6 +1,7 @@
 import React from "react";
 import "./ClockTimer.css";
 
+// Logo animation for waiting the order
 const ClockTimer = () => {
   return (
     <>

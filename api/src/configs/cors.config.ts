@@ -1,9 +1,11 @@
+// Cross-origin resource sharing
 import * as cors from 'cors';
 import express from 'express'
+
 //get router
 var router = express.Router();
 
-//options for cors midddleware
+// Options for cors midddleware
 export const options: cors.CorsOptions = {
     allowedHeaders: [
         'Origin',

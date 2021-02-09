@@ -1,3 +1,4 @@
+// Custom Interface for TypeScript
 
 export interface Food {
     id?: String;

@@ -21,6 +21,16 @@ export const AuthProvider: React.FC = ({ children }) => {
         sessionStorage.setItem('userID', user.uid)
         sessionStorage.setItem('userMail', user.email!)
         sessionStorage.setItem('isUser', "true")
+      } else {
+        sessionStorage.removeItem('userID')
+        sessionStorage.removeItem('userMail')
+        sessionStorage.removeItem('isUser')
+        setAuth({
+          userID: "",
+          userMail: "",
+          isUser:false
+        })
+
       }
     })
   }, [])

@@ -2,6 +2,8 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+// Firebase hosting
+// This is not sensitive data because google treat it as public data
 var firebaseConfig = {
   apiKey: "AIzaSyAOx82eHb8-HLAM2wUVzIdKjujXSoVqe70",
   authDomain: "adfoodio.firebaseapp.com",

@@ -32,7 +32,7 @@ exports.getFoods = getFoods;
 function createFood(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const newFood = req.body;
-        // console.log(newFood)
+
         const conn = yield database_1.connect();
         conn.query(`INSERT INTO foods SET ?`, [newFood]);
         return res.json({ message: "Food created" });

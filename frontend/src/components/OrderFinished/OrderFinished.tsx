@@ -4,7 +4,7 @@ import "./OrderFinished.css";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 
-
+// Cute penguin once your order is completed :D
 const OrderFinished = () => {
   return (
     <>

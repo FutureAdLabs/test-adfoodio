@@ -1,6 +1,7 @@
 import React from "react";
 import "./TextEffect.css";
 
+// Text Animation slider 
 const TextEffect = () => {
   return (
     <div className="mainText">
