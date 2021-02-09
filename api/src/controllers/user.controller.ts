@@ -22,8 +22,7 @@ export async function getUser(req: Request, res: Response) {
     ]);
     conn.end();
     let orders = user[0][0].orders.id;
-    // console.log('orders', orders)
-    // console.log('orders LAST', orders[orders.length -1], orders[orders.length -2], orders[orders.length -3])
+
     if (orders.length > 2) {
       let ordersCopy = []
       ordersCopy.push(orders[orders.length -1]) 
