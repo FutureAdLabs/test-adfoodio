@@ -1,0 +1,44 @@
+1. Clone repository https://github.com/aliciarojovera/test-adfoodio
+
+2. Install Docker with https://ubunlog.com/instalar-usar-docker-ubuntu/
+
+sudo apt update
+ 
+sudo apt upgrade
+
+sudo apt-get install apt-transport-https ca-certificates curl gnupg software-properties-common
+ 
+Ahora si todo sale bien puedes realizar la instalación de Docker directamente con el siguiente comando:
+ 
+sudo apt-get install docker-ce
+
+To fix errors
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu cosmic nightly "
+
+3. sudo sh -c 'echo "\n127.0.0.1 api.adfoodio.site\n::1 api.adfoodio.site\n" >> /etc/hosts'
+
+4. Run docker-compose up in the project folder
+
+5. Run npm start in frontend folder
+
+6. Prepare the set for ts with npx i typescript
+
+6. Install morgan
+
+7. Configure morgan
+
+8. Config route to ('/) in base.routes.ts
+
+9. Make database.sql and create de DB, and the foods' table
+
+10. Reconfigure base.routes.ts with controllers 
+
+11. Add a read point (getFoods) from the food.controller.ts with connect() to link server with db
+
+12. Add a create method (createFood) from the food.controller.ts
+
+
+1. ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234'
